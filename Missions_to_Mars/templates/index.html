@@ -8,16 +8,13 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1">Mission to Mars</span>
-        <button type="button" class="btn btn-primary btn-lg">Scrape Mars Data</button>
-    </nav>
 
-    <div class="container">
+    <div class="container" style="background: lightgray;">
         <div class="row">
             <div class="col-12">
                 <div class="jumbotron text-center bg-dark text-light">
                     <h1 class="display-4">Mission to Mars</h1>
+                    <br>
                     <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new data</a>
                 </div>
             </div>
@@ -54,7 +51,7 @@
 
             <div class="container">
 
-                <div class="row row-cols-2">
+                <div class="row">
                     <div class="col">
                         <a href="{{ mars_data.hemispheres[0]['img_url'] }}" target="_blank">
                             <div class="card">
@@ -76,7 +73,11 @@
                             </div>
                         </a>
                     </div>
+                </div>
 
+                <br>
+                <br>
+                <div class="row">
                     <div class="col">
                         <a href="{{ mars_data.hemispheres[2]['img_url'] }}" target="_blank">
                             <div class="card">
@@ -89,7 +90,7 @@
                     </div>
 
                     <div class="col">
-                        <a href="{{ mars_data.hemispheres[3]['img_url'] }}">
+                        <a href="{{ mars_data.hemispheres[3]['img_url'] }}" target="_blank">
                             <div class="card">
                                 <div class="card-body">
                                     <h3 class="card-text">{{ mars_data.hemispheres[3]['title'] }}</h3>
