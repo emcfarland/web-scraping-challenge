@@ -23,7 +23,7 @@ def scrape():
 
     # Visit NASA news site, scrape latest headline and teaser
     browser.visit(news_url)
-    time.sleep(0.2)
+    time.sleep(0.1)
 
     news_html = browser.html
     news_soup = bs(news_html, 'html.parser')
@@ -61,7 +61,7 @@ def scrape():
     mars_facts_table = pd.read_html(mars_facts_url, match='Recorded By')[0]
     mars_facts_table.columns = ["Criteria", "Values"]
 
-    mars_facts_html = mars_facts_table.to_html(index=False)
+    mars_facts_html = mars_facts_table.to_html(index=False, classes="table table-striped")
 
 
 
@@ -92,7 +92,7 @@ def scrape():
 
         # Return to initial page
         browser.back()
-        time.sleep(0.2)
+        time.sleep(0.1)
 
     browser.quit()
 

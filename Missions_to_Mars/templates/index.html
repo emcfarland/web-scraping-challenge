@@ -8,6 +8,58 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron text-center">
+                    <h1 class="display-4">Mission to Mars</h1>
+                    <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new data</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h1>Latest Mars News</h1>
+            <hr class="my-4">
+            <h2>{{ mars_data.headline }}</h2>
+            <p>{{ mars_data.teaser }}</p>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-8">
+                <div class="col-12">
+                    <div class="container">
+                        <a href="{{ mars_data.featured_image }}" target="_blank"><img src="{{ mars_data.featured_image }}" alt="Featured Image on JPL Space Photos" class="img-thumbnail"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+
+                    {{ mars_data.facts_table }}
+            </div>
+            <div class="w-100"></div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="container">
+                <div class="row row-cols-2">
+                  <div class="col">
+                    <div class="card">
+                        <img src="{{ mars_data.hemispheres[0]["img_url"] }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-text">{{ mars_data.hemispheres[0]["title"] }}</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col">Column</div>
+                  <div class="col">Column</div>
+                  <div class="col">Column</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
