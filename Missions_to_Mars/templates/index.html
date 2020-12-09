@@ -8,10 +8,15 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <body>
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Mission to Mars</span>
+        <button type="button" class="btn btn-primary btn-lg">Scrape Mars Data</button>
+    </nav>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="jumbotron text-center">
+                <div class="jumbotron text-center bg-dark text-light">
                     <h1 class="display-4">Mission to Mars</h1>
                     <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new data</a>
                 </div>
@@ -19,46 +24,85 @@
         </div>
 
         <div class="row">
-            <h1>Latest Mars News</h1>
-            <hr class="my-4">
-            <h2>{{ mars_data.headline }}</h2>
-            <p>{{ mars_data.teaser }}</p>
+            <div class="col">
+                <hr class="my-4">
+                <h1>Latest Mars News</h1>
+                <h2>{{ mars_data.headline }}</h2>
+                <p>{{ mars_data.teaser }}</p>
+            </div>
         </div>
 
         <br>
+        <hr>
         <div class="row">
             <div class="col-8">
-                <div class="col-12">
-                    <div class="container">
-                        <a href="{{ mars_data.featured_image }}" target="_blank"><img src="{{ mars_data.featured_image }}" alt="Featured Image on JPL Space Photos" class="img-thumbnail"></a>
-                    </div>
-                </div>
+                <h2 class="text-center">Featured Image from JPL</h2>
+                <a href="{{ mars_data.featured_image }}" target="_blank">
+                    <img src="{{ mars_data.featured_image }}" alt="Featured Image on JPL Space Photos" class="img-thumbnail">
+                </a>
             </div>
 
             <div class="col-4">
-
-                    {{ mars_data.facts_table }}
+                <h2 class="text-center">Facts about Mars</h2>
+                {{ mars_data.facts_table|safe }}
             </div>
-            <div class="w-100"></div>
         </div>
 
         <br>
+        <hr>
         <div class="row">
+
             <div class="container">
+
                 <div class="row row-cols-2">
-                  <div class="col">
-                    <div class="card">
-                        <img src="{{ mars_data.hemispheres[0]["img_url"] }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <p class="card-text">{{ mars_data.hemispheres[0]["title"] }}</p>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="col">Column</div>
-                  <div class="col">Column</div>
-                  <div class="col">Column</div>
+                    <div class="col">
+                        <a href="{{ mars_data.hemispheres[0]['img_url'] }}" target="_blank">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-text text-center">{{ mars_data.hemispheres[0]['title'] }}</h3>
+                                </div>
+                                <img src="{{ mars_data.hemispheres[0]['img_url'] }}" class="card-img-top" alt="...">
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <a href="{{ mars_data.hemispheres[1]['img_url'] }}" target="_blank">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-text text-center">{{ mars_data.hemispheres[1]['title'] }}</h3>
+                                </div>
+                                <img src="{{ mars_data.hemispheres[1]['img_url'] }}" class="card-img-top" alt="...">
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <a href="{{ mars_data.hemispheres[2]['img_url'] }}" target="_blank">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-text text-center">{{ mars_data.hemispheres[2]['title'] }}</h3>
+                                </div>
+                                <img src="{{ mars_data.hemispheres[2]['img_url'] }}" class="card-img-top" alt="...">
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <a href="{{ mars_data.hemispheres[3]['img_url'] }}">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-text">{{ mars_data.hemispheres[3]['title'] }}</h3>
+                                </div>
+                                <img src="{{ mars_data.hemispheres[3]['img_url'] }}" class="card-img-top" alt="...">
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
+
             </div>
+
         </div>
     </div>
 </body>
